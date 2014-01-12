@@ -1,0 +1,165 @@
+.Language=Engligh,English
+.PluginContents=Coder Tools
+
+@Contents
+$ #Coder Tools Version 2.00#
+$ #(C) 2001-2003 Ondrej Brablc#
+
+    Coder Tools plugin offers several function which are almost independent, but have
+something in common - are intended to support writing of code. Please let me know that
+you were reading this help, I will improve it in this case.
+
+    Main plugin functions:
+
+    ~Change marks in code and code commenting~@ChangeMarks@
+    ~Directory changing with user accounts support~@ChangeDir@
+    ~Trailing space truncation~@Truncate@
+    ~Checking of long lines~@LongLinesFound@
+    ~Tab expansion~@TabExpansion@
+
+    Add the functions except the directory changing require ~configuration~@Configuration@ to take place
+for each individual language (recognized by the file extension).
+
+    ~Distribution and thanks~@Info@
+    ~Author~@Author@
+
+@ChangeMarks
+$ #Editor interface of Coder Tools#
+
+    The plugin interface invoked from editor provides functions for insertion and listing
+of change marks. Change marks are surrounded by comments which must be set per language in
+the ~configuration~@Configuration@.
+
+ ÉÍÍÍ Coder Tools - Main Menu ÍÍÍÍ»
+ º  Comment block #>#               º
+ º  Uncomment block #<#             º
+ º  Mark debu#g# block              º
+ º  Find #t#oo long lines           º
+ ÇÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¶
+ º  Select #c#urrent change mark    º
+ º  Add modification #h#istory      º
+ º  #D#elete block                  º
+ º  Mark #b#lock as changed         º
+ º  #F#ind matching pair            º
+ º  #L#ist current change marks     º
+ º  List #e#rroneous change marks   º
+ º  List #a#ll change marks         º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ The explanation of some menu items you can find here:
+
+ ~Select current change mark~@SelectCurrent@
+
+ #List current change marks# - lists all current change marks.
+
+ #List erroneous change marks# - lists all marks with improper nesting or where either
+BEGIN or END mark is missing.
+
+ #List all change marks# - displays a tree of all marks, detected errors are shown as well.
+
+ For erroneous and all change mark listing it is necessary to set up correctly #Regexp mark pattern#
+this patter mustn't contain any round brackets.
+
+@SelectCurrent
+$ #Select current change mark#
+
+ Use to select which change mark will be used to track the changes. This selection
+has effect on all other menus from the ~main menu~@ChangeMarks@ except the last two ones.
+
+@Configuration
+$ #Configuration of Coder Tools#
+
+ You can setup the form of change marks for different languages.
+
+ ÉÍ Customize language ÍÍ»
+ º  C/C++                º
+ º  DCL Script           º
+ º  JavaScript           º
+ ÈÍÍÍÍÍ Ins,Del,F4 ÍÍÍÍÍÍ¼
+
+ Choose any of the languages and press F4 to edit it. You will get following screen:
+
+    #Language# - description of language (#C/C++#, #Pascal# etc.)
+
+    #File mask# - a list of extensions for which the configuration is valid (*.c,*.[c,h]pp)
+
+    ~Truncate trailnig spaces and empty lines on file end~@Truncate@
+
+    ~Check long lines when saving~@LongLinesFound@
+
+    ~Expand TABs to spaces~@TabExpansion@
+
+    #Openning comment#, #Closing comment# - used when inserting the change mark.
+
+    #Openning mark# - opening decoration of the change mark
+
+    #Closing mark# - closing decoration of the change mark
+
+    #Closing add. mark# - formatting of additional information
+
+    #Leading comment#  - used when commenting and uncommenting a block.
+
+    #Header comment#   - used when inserting modification history.
+
+@~The Contents~@Contents@
+
+@List
+$ #Result list#
+
+ Select one row and press Enter to get to this SIR mark in the source code.
+
+@Info
+$ #Distribution and thanks#
+     Conditions of distribution: FREEWARE. Sources are distributed on demand but
+it is an early work so do not expect anything nice.
+
+     The author does not bear any responsibility for consequences of using this
+product.
+
+  Thanks
+
+  #Alexander Nazarenko# AKA #/CorWin#, Fidonet: 2:464/991, 2:464/991.991
+  - the author of the Find-All and very well wrap library for plugins
+(this plugin is based on this libraries/plugin)
+
+  #Cail Lomecb# ~<ruiv@@uic.nnov.ru>~@mailto:ruiv@@uic.nnov.ru@, ~http://www.uic.nnov.ru/~~ruiv/~@http://www.uic.nnov.ru/~~ruiv/@
+  - the author of the regexp engine used by this plugin
+
+@Author
+$ #Coder Tools
+  Author of this plugin - #Ondrej Brablc#.
+  Copyright (c) 2001-2003. All Rights Reserved.
+
+  You may use this plugin liberally and without hindrance.
+
+       Place:  Frankfurt am Main, Germany
+       Email:  ~far@@brablc.com~@mailto:far@@brablc.com?Subject=CoderTools@
+       Web  :  ~http://far.brablc.com~@http://far.brablc.com@
+
+@Truncate
+
+ Deletes white characters at the end of the lines and empty lines at the end of the file when user saves the file.
+Deletes white characters on given line when END key is pressed.
+
+@TabExpansion
+
+ FAR's TAB expansion must be disabled. TABs are expanded on file open and each time TAB is pressed. Default
+TAB size if 4 spaces.
+
+@ChangeDir
+
+ This is some kind of change directory function. It has support for user directories and is tailored for
+HP OpenVMS FTP (via Far Navigator).
+
+ F3    - copy path to global dir
+ ENTER - select user
+
+@LongLinesFound
+
+ When saving the files with trailing space truncation, lines longer then
+limit (default is 80 characters) are searched. A user is prompted for action, he can
+either show all lines longer then limit, ignore this message for this instance of FAR
+(show as Ignore today) or disable checking at all.
+
+ Both complete and today only ignorance of too long lines is valid for all file types
+and can be renewed by executing command #Find too long lines# from the ~interface~@ChangeMarks@.
